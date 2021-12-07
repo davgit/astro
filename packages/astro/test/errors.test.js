@@ -21,7 +21,6 @@ describe('Error display', () => {
       const res = await fixture.fetch('/astro-syntax-error');
       expect(res.status).to.equal(500);
       const body = await res.text();
-      console.log(res.body);
       expect(body).to.include('Unexpected &quot;}&quot;');
     });
 
@@ -29,7 +28,6 @@ describe('Error display', () => {
       const res = await fixture.fetch('/astro-frontmatter-syntax-error');
       expect(res.status).to.equal(500);
       const body = await res.text();
-      console.log(res.body);
       expect(body).to.include('Unexpected end of frontmatter');
     });
 
