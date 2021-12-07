@@ -17,6 +17,8 @@ import { resolveDependency } from './util.js';
 const ALWAYS_EXTERNAL = new Set([
   ...builtinModules.map((name) => `node:${name}`),
   '@sveltejs/vite-plugin-svelte',
+  '@proload/core',
+  '@proload/core/lib/esm/requireOrImport.mjs',
   'serialize-javascript',
   'micromark-util-events-to-acorn',
   'node-fetch',
@@ -66,10 +68,6 @@ export async function createVite(inlineConfig: ViteConfigWithSSR, { astroConfig,
       // handle Vite URLs
       proxy: {
         // add proxies here
-      },
-      fs: {
-        // Allow serving files from one level up to the project root
-        allow: ['..'],
       },
     },
     // Note: SSR API is in beta (https://vitejs.dev/guide/ssr.html)
