@@ -1982,10 +1982,10 @@
   resolved "https://registry.yarnpkg.com/@ungap/promise-all-settled/-/promise-all-settled-1.1.2.tgz#aa58042711d6e3275dd37dc597e5d31e8c290a44"
   integrity sha512-sL/cEvJWAnClXw0wHk85/2L0G6Sj8UB0Ctc1TEMbKSsmpRosqhwj9gWgFRZSrBr2f9tiXISwNhCPmlfqUqyb9Q==
 
-"@vitejs/plugin-vue@^1.10.0-beta.0":
-  version "1.10.0-beta.0"
-  resolved "https://registry.yarnpkg.com/@vitejs/plugin-vue/-/plugin-vue-1.10.0-beta.0.tgz#6c5619482c51e2748b19e0e0d8c855e1aa01b893"
-  integrity sha512-HVdqMh9Bi9Wdk9YN5ho+VlBTxmZFWO2LCM/856pSlRK2qN2i7O2mFHFVAjTCRLtZjBpOwwB6W9RkKem4Q7oiwg==
+"@vitejs/plugin-vue@^1.10.2":
+  version "1.10.2"
+  resolved "https://registry.yarnpkg.com/@vitejs/plugin-vue/-/plugin-vue-1.10.2.tgz#d718479e2789d8a94b63e00f23f1898ba239253a"
+  integrity sha512-/QJ0Z9qfhAFtKRY+r57ziY4BSbGUTGsPRMpB/Ron3QPwBZM4OZAZHdTa4a8PafCwU5DTatXG8TMDoP8z+oDqJw==
 
 "@vue/compiler-core@3.2.24":
   version "3.2.24"
