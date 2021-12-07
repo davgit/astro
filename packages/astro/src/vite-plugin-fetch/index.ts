@@ -3,20 +3,6 @@ import type { BaseNode, Identifier } from 'estree';
 import MagicString from 'magic-string';
 import { walk } from 'estree-walker';
 
-// https://github.com/vitejs/vite/discussions/5109#discussioncomment-1450726
-function isSSR(options: undefined | boolean | { ssr?: boolean }): boolean {
-  if (options === undefined) {
-    return false;
-  }
-  if (typeof options === 'boolean') {
-    return options;
-  }
-  if (typeof options == 'object') {
-    return !!options.ssr;
-  }
-  return false;
-}
-
 // This matches any JS-like file (that we know of)
 // See https://regex101.com/r/Cgofir/1
 const SUPPORTED_FILES = /\.(astro|svelte|vue|[cm]?js|jsx|[cm]?ts|tsx)$/;
@@ -32,7 +18,7 @@ export default function pluginFetch(): Plugin {
     name: '@astrojs/vite-plugin-fetch',
     enforce: 'post',
     async transform(code, id, opts) {
-      const ssr = isSSR(opts);
+      const ssr = Boolean(opts?.ssr);
       // If this isn't an SSR pass, `fetch` will already be available!
       if (!ssr) {
         return null;

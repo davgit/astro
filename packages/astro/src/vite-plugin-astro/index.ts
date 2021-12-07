@@ -16,20 +16,6 @@ interface AstroPluginOptions {
   devServer?: AstroDevServer;
 }
 
-// https://github.com/vitejs/vite/discussions/5109#discussioncomment-1450726
-function isSSR(options: undefined | boolean | { ssr?: boolean }): boolean {
-  if (options === undefined) {
-    return false;
-  }
-  if (typeof options === 'boolean') {
-    return options;
-  }
-  if (typeof options == 'object') {
-    return !!options.ssr;
-  }
-  return false;
-}
-
 /** Transform .astro files for Vite */
 export default function astro({ config, devServer }: AstroPluginOptions): vite.Plugin {
   let viteTransform: TransformHook;
@@ -66,7 +52,7 @@ export default function astro({ config, devServer }: AstroPluginOptions): vite.P
           preprocessStyle: async (value: string, attrs: Record<string, string>) => {
             const lang = `.${attrs?.lang || 'css'}`.toLowerCase();
             try {
-              const result = await transformWithVite({ value, lang, id, transformHook: viteTransform, ssr: isSSR(opts) });
+              const result = await transformWithVite({ value, lang, id, transformHook: viteTransform, ssr: Boolean(opts?.ssr) });
               let map: SourceMapInput | undefined;
               if (!result) return null as any; // TODO: add type in compiler to fix "any"
               if (result.map) {
