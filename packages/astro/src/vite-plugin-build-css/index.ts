@@ -8,9 +8,9 @@ import esbuild from 'esbuild';
 const PLUGIN_NAME = '@astrojs/rollup-plugin-build-css';
 
 // This is a virtual module that represents the .astro <style> usage on a page
-const ASTRO_STYLE_PREFIX = '@astro-inline-style';
+const ASTRO_STYLE_PREFIX = '\0astro-inline-style';
 
-const ASTRO_PAGE_STYLE_PREFIX = '@astro-page-all-styles';
+const ASTRO_PAGE_STYLE_PREFIX = '\0astro-page-all-styles';
 
 const isCSSRequest = (request: string) => STYLE_EXTENSIONS.has(path.extname(request));
 
